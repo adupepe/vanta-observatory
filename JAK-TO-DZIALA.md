@@ -61,11 +61,12 @@ JavaScript obsługuje:
 - wizualizację sygnału,
 - talię kart ekspedycji,
 - okno szczegółów ekspedycji,
-- zmianę ustawienia teleskopu podczas przewijania,
+- model 3D radioteleskopu tworzony z setek trójkątów i renderowany bez biblioteki przez WebGL,
+- automatyczny obrót teleskopu, sterowanie przeciąganiem oraz zmianę azymutu podczas przewijania,
 - opcjonalne subtelne dźwięki,
 - walidację i wysyłanie formularza.
 
-Canvas działa jak płótno. JavaScript rysuje na nim każdą gwiazdę i każdą klatkę wykresu. Nie wymaga to pobierania filmu ani ciężkiej biblioteki 3D.
+Canvas działa jak płótno. JavaScript rysuje na nim każdą gwiazdę i każdą klatkę wykresu. Drugi Canvas używa WebGL: kod buduje podstawę, maszt i czaszę teleskopu z wierzchołków oraz trójkątów, a karta graficzna obraca i wyświetla ten model w czasie rzeczywistym. Nie jest to film ani płaski obrazek i nie wymaga ciężkiej biblioteki 3D.
 
 ## 4. Backend
 

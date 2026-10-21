@@ -377,3 +377,37 @@ noscript { position: fixed; z-index: 999; bottom: 0; width: 100%; padding: 12px;
   .cursor, .loader { display: none; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* WebGL Orbital Array */
+.scope3d { position: relative; width: min(43vw,610px); aspect-ratio: 1.08; cursor: grab; touch-action: pan-y; isolation: isolate; }
+.scope3d:active { cursor: grabbing; }
+.scope3d canvas { position: absolute; inset: 0; z-index: 2; display: block; width: 100%; height: 100%; filter: drop-shadow(0 32px 35px rgba(40,28,87,.18)); }
+.scope3d__halo { position: absolute; z-index: 0; left: 14%; top: 12%; width: 72%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,rgba(126,91,255,.22),rgba(115,232,255,.08) 35%,transparent 68%); filter: blur(22px); animation: scopeHalo 5s ease-in-out infinite alternate; }
+.scope3d::before, .scope3d::after { content:""; position:absolute; z-index:1; inset:12%; border:1px solid rgba(71,50,117,.18); border-radius:50%; transform:rotateX(68deg); }
+.scope3d::after { inset:20%; border-color:rgba(33,122,143,.2); transform:rotateY(68deg); }
+.scope3d__hint, .scope3d__engine { position:absolute; z-index:3; bottom:3%; color:#76717d; font:7px var(--mono); letter-spacing:.13em; pointer-events:none; }
+.scope3d__hint { left:4%; }
+.scope3d__engine { right:4%; color:#4d7c87; }
+@keyframes scopeHalo { to { transform:scale(1.12); opacity:.65; } }
+@media (max-width:900px) { .scope3d { width:min(68vw,500px); } }
+@media (max-width:600px) { .scope3d { width:92vw; max-width:410px; } .scope3d__hint { display:none; } }
+
+/* Spójne przejścia tonalne między sekcjami */
+.missions { padding-top: 230px; background: linear-gradient(to bottom,#08080d 0,#322c3e 72px,#a8a1ad 142px,#e2dedb 230px,#e2dedb 100%); }
+.portal::after { content:""; position:absolute; z-index:1; inset:0 0 auto; height:180px; pointer-events:none; background:linear-gradient(to bottom,#e2dedb 0,rgba(93,80,111,.78) 48%,transparent 100%); }
+.instrument { background: radial-gradient(circle at 22% 22%,rgba(126,91,255,.12),transparent 24%),linear-gradient(to bottom,#06060a 0,#706879 105px,#dedbd7 230px,#dedbd7 100%); }
+.instrument__sticky { padding-top: 210px; }
+.visit { padding-top: 250px; background:linear-gradient(to bottom,#dedbd7 0,#756c7f 90px,#221d2d 175px,#08080d 250px,#08080d 100%); }
+footer { padding-top:190px; background:linear-gradient(to bottom,#08080d 0,#6e6678 80px,#e4e0dc 190px,#e4e0dc 100%); }
+
+/* Czytelny efekt wysłania impulsu nad całym interfejsem */
+.impulse-wave { position:fixed; z-index:180; left:var(--pulse-x); top:var(--pulse-y); width:16px; height:16px; pointer-events:none; transform:translate(-50%,-50%); }
+.impulse-wave::before,.impulse-wave::after { content:""; position:absolute; inset:0; border:2px solid #73e8ff; border-radius:50%; box-shadow:0 0 28px rgba(115,232,255,.9),inset 0 0 18px rgba(126,91,255,.7); animation:impulseWave 1.15s cubic-bezier(.12,.7,.2,1) forwards; }
+.impulse-wave::after { border-color:#a990ff; animation-delay:.12s; }
+.impulse-wave i { position:absolute; left:50%; top:50%; width:5px; height:5px; border-radius:50%; background:#fff; box-shadow:0 0 18px #73e8ff; animation:impulseCore .65s ease-out forwards; }
+body.is-impulsing::after { content:""; position:fixed; z-index:179; inset:0; pointer-events:none; background:radial-gradient(circle at var(--pulse-x) var(--pulse-y),rgba(115,232,255,.23),transparent 42%); animation:impulseFlash .8s ease-out forwards; }
+@keyframes impulseWave { to { opacity:0; transform:translate(-50%,-50%) scale(55); } }
+@keyframes impulseCore { to { opacity:0; transform:scale(8); } }
+@keyframes impulseFlash { from { opacity:1; } to { opacity:0; } }
+@media(max-width:900px){.instrument__sticky{padding-top:150px}.missions{padding-top:190px}.visit{padding-top:210px}}
+@media(max-width:600px){.instrument__sticky{padding-top:110px}.missions{padding-top:170px}.visit{padding-top:190px}footer{padding-top:160px}}
