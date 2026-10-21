@@ -4,14 +4,18 @@ Profesjonalna, immersyjna strona fikcyjnego obserwatorium ciemnego nieba. Projek
 
 ## Najważniejsze elementy
 
-- interaktywna czarna dziura i pole gwiazd generowane w przeglądarce,
+- nowe wejście: obracająca się przysłona teleskopu, logo VAN/TA i kołowe odsłonięcie strony,
+- interaktywna czarna dziura, pole gwiazd i spadające meteory generowane w przeglądarce,
+- przycisk „Wyślij impuls”, który wypuszcza falę światła i deszcz meteorów,
+- zorza, konstelacje i migające gwiazdy wypełniające tło,
 - animowany analizator sygnału kosmicznego,
 - karty ekspedycji z płynnymi przejściami i oknami szczegółów,
 - trójwymiarowa ilustracja teleskopu reagująca na przewijanie,
 - kompletny formularz rezerwacji połączony z API,
 - responsywny interfejs na komputer, tablet i telefon,
 - obsługa klawiatury i systemowego ograniczenia animacji,
-- brak zewnętrznych bibliotek, fontów, obrazów i trackerów.
+- lokalne fonty Syne (nagłówki) i Manrope (tekst) na licencji SIL OFL w `public/fonts/`,
+- brak zewnętrznych bibliotek, CDN-ów, obrazów i trackerów.
 
 ## Uruchomienie
 

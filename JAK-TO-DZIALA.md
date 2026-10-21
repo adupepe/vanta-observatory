@@ -38,6 +38,8 @@ CSS wykorzystuje:
 
 - Grid i Flexbox do budowania układu,
 - zmienne CSS dla kolorów i fontów,
+- `@font-face`, czyli wczytywanie własnych fontów z folderu `public/fonts/` (Syne do dużych napisów, Manrope do tekstu),
+- `clip-path: circle(...)` do kołowego „otwarcia” strony po ekranie startowym,
 - media queries do wersji mobilnej,
 - animacje `transform` i `opacity`, które są wydajne,
 - perspektywę 3D do teleskopu i czarnej dziury,
@@ -49,7 +51,9 @@ Czarna dziura nie jest filmem ani obrazkiem. Powstaje z warstw CSS: gradientów,
 
 JavaScript obsługuje:
 
-- ekran startowy,
+- ekran startowy z przysłoną teleskopu i licznikiem procentów,
+- spadające meteory rysowane co klatkę na Canvas,
+- przycisk „Wyślij impuls” — kliknięcie tworzy rozchodzący się pierścień światła, iskry i dodatkowe meteory,
 - pole gwiazd na Canvas 2D,
 - ruch czarnej dziury względem kursora,
 - zegar UTC,
@@ -136,7 +140,8 @@ vanta-observatory/
 ├── public/
 │   ├── index.html
 │   ├── styles.css
-│   └── app.js
+│   ├── app.js
+│   └── fonts/            ← lokalne fonty Syne i Manrope + licencje OFL
 ├── data/
 │   └── .gitkeep
 ├── tests/

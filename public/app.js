@@ -91,6 +91,8 @@ if (!reducedMotion && blackHole && matchMedia("(pointer:fine)").matches) {
 const cosmos = $("[data-cosmos]");
 const cosmosContext = cosmos.getContext("2d", { alpha: true });
 let stars = [];
+let meteors = [];
+let impulses = [];
 let cosmosWidth = 0;
 let cosmosHeight = 0;
 let pointerX = 0;
@@ -114,6 +116,7 @@ const resizeCosmos = () => {
     speed: Math.random() * 0.08 + 0.015,
     phase: Math.random() * Math.PI * 2
   }));
+  meteors = [];
 };
 
 window.addEventListener("resize", resizeCosmos);
@@ -137,9 +140,72 @@ const drawCosmos = (timestamp = 0) => {
     cosmosContext.arc(star.x + pointerX * star.z, star.y + pointerY * star.z, star.size * star.z + 0.15, 0, Math.PI * 2);
     cosmosContext.fill();
   });
+
+  if (!reducedMotion && Math.random() < 0.008 && meteors.length < 3) {
+    meteors.push({
+      x: Math.random() * cosmosWidth * 0.8,
+      y: -30,
+      length: 80 + Math.random() * 130,
+      speed: 8 + Math.random() * 8,
+      life: 1
+    });
+  }
+  meteors.forEach((meteor) => {
+    meteor.x += meteor.speed * 0.75;
+    meteor.y += meteor.speed;
+    meteor.life -= 0.012;
+    const gradient = cosmosContext.createLinearGradient(
+      meteor.x - meteor.length * 0.6,
+      meteor.y - meteor.length,
+      meteor.x,
+      meteor.y
+    );
+    gradient.addColorStop(0, "rgba(115,232,255,0)");
+    gradient.addColorStop(0.75, `rgba(141,107,255,${meteor.life * 0.45})`);
+    gradient.addColorStop(1, `rgba(255,255,255,${meteor.life})`);
+    cosmosContext.beginPath();
+    cosmosContext.moveTo(meteor.x - meteor.length * 0.6, meteor.y - meteor.length);
+    cosmosContext.lineTo(meteor.x, meteor.y);
+    cosmosContext.strokeStyle = gradient;
+    cosmosContext.lineWidth = 1.4;
+    cosmosContext.stroke();
+  });
+  meteors = meteors.filter((meteor) => meteor.life > 0 && meteor.y < cosmosHeight + 100);
+
+  impulses.forEach((impulse) => {
+    impulse.radius += 7;
+    impulse.alpha -= 0.018;
+    cosmosContext.beginPath();
+    cosmosContext.arc(impulse.x, impulse.y, impulse.radius, 0, Math.PI * 2);
+    cosmosContext.strokeStyle = `rgba(115,232,255,${Math.max(0, impulse.alpha)})`;
+    cosmosContext.lineWidth = 1;
+    cosmosContext.stroke();
+    for (let index = 0; index < 8; index += 1) {
+      const angle = (Math.PI * 2 * index) / 8 + impulse.radius * 0.01;
+      const x = impulse.x + Math.cos(angle) * impulse.radius * 0.72;
+      const y = impulse.y + Math.sin(angle) * impulse.radius * 0.72;
+      cosmosContext.fillStyle = `rgba(215,255,100,${Math.max(0, impulse.alpha)})`;
+      cosmosContext.fillRect(x, y, 2, 2);
+    }
+  });
+  impulses = impulses.filter((impulse) => impulse.alpha > 0);
   requestAnimationFrame(drawCosmos);
 };
 drawCosmos();
+
+const orbitPulse = $("[data-orbit-pulse]");
+orbitPulse.addEventListener("click", () => {
+  const rect = orbitPulse.getBoundingClientRect();
+  impulses.push({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2, radius: 10, alpha: 1 });
+  meteors.push(
+    { x: cosmosWidth * 0.18, y: -40, length: 170, speed: 13, life: 1 },
+    { x: cosmosWidth * 0.52, y: -110, length: 120, speed: 10, life: 1 }
+  );
+  orbitPulse.classList.remove("is-pulsing");
+  void orbitPulse.offsetWidth;
+  orbitPulse.classList.add("is-pulsing");
+  playTone(520, 0.22);
+});
 
 const waveCanvas = $("[data-wave-canvas]");
 const waveContext = waveCanvas.getContext("2d");

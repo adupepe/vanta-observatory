@@ -12,11 +12,16 @@
 </head>
 <body>
   <div class="loader" data-loader aria-hidden="true">
-    <div class="loader__orbit"><i></i><i></i><i></i></div>
+    <div class="loader__aperture">
+      <i></i><i></i><i></i><i></i><i></i><i></i>
+      <div class="loader__void"></div>
+    </div>
+    <div class="loader__word" aria-hidden="true">
+      <span>VAN</span><b>◉</b><span>TA</span>
+    </div>
     <div class="loader__data">
-      <span>VANTA / OPTICAL ARRAY</span>
-      <strong data-loader-count>000</strong>
-      <small>CALIBRATING DARKNESS</small>
+      <span>OBSERVATORY / NIGHT ARRAY</span>
+      <small><b data-loader-count>000</b>% / OPENING APERTURE</small>
     </div>
   </div>
 
@@ -26,12 +31,12 @@
 
   <header class="nav" data-nav>
     <a class="brand" href="#top" aria-label="VANTA, strona główna">
-      <svg viewBox="0 0 34 34" aria-hidden="true">
-        <circle cx="17" cy="17" r="15"></circle>
-        <circle cx="17" cy="17" r="4"></circle>
-        <path d="M2 17h30M17 2v30"></path>
+      <svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true">
+        <path d="M4 7l18 32L40 7"></path>
+        <circle cx="22" cy="20" r="7"></circle>
+        <path d="M10 20h24"></path>
       </svg>
-      <span>VANTA<small>OBSERVATORY</small></span>
+      <span>VAN/TA<small>DEEP SKY INSTITUTE</small></span>
     </a>
     <div class="nav__coordinates" aria-hidden="true">
       <span>49°18′N</span><i></i><span>19°57′E</span>
@@ -50,6 +55,11 @@
 
   <main>
     <section class="hero" id="top">
+      <div class="hero__aurora" aria-hidden="true"></div>
+      <div class="hero__constellation" aria-hidden="true">
+        <i style="--x:8%;--y:18%"></i><i style="--x:20%;--y:32%"></i><i style="--x:34%;--y:12%"></i>
+        <i style="--x:79%;--y:24%"></i><i style="--x:91%;--y:41%"></i><i style="--x:68%;--y:64%"></i>
+      </div>
       <div class="hero__interface" aria-hidden="true">
         <span class="hero__code">VX-09 / LIVE ARRAY</span>
         <span class="hero__time" data-space-time>00:00:00 UTC</span>
@@ -58,13 +68,13 @@
       </div>
 
       <div class="hero__copy">
-        <p class="eyebrow reveal">PRYWATNE OBSERWATORIUM CIEMNEGO NIEBA</p>
+        <p class="eyebrow"><i></i> PRYWATNE OBSERWATORIUM CIEMNEGO NIEBA <b>EST. 2026</b></p>
         <h1 aria-label="Patrzymy poza widzialne">
-          <span class="reveal">PATRZYMY</span>
-          <span class="hero__outline reveal">POZA</span>
-          <span class="hero__italic reveal">WIDZIALNE.</span>
+          <span><small>01</small>PATRZYMY</span>
+          <span class="hero__outline"><small>02</small>POZA</span>
+          <span class="hero__italic"><small>03</small>WIDZIALNE.</span>
         </h1>
-        <div class="hero__intro reveal">
+        <div class="hero__intro">
           <p>Niebo to nie tło. To archiwum światła, które podróżowało miliardy lat, żeby dotrzeć właśnie tutaj.</p>
           <a class="magnetic-button" href="#missions"><span>WEJDŹ W CIEMNOŚĆ</span><b>↘</b></a>
         </div>
@@ -84,6 +94,9 @@
       <div class="hero__scroll" aria-hidden="true">
         <span>SCROLL TO DESCEND</span><i></i>
       </div>
+      <button class="hero__discover" type="button" data-orbit-pulse aria-label="Wyślij impuls w przestrzeń">
+        <span>WYŚLIJ<br>IMPULS</span><i></i>
+      </button>
     </section>
 
     <section class="signal" id="signal">
@@ -164,6 +177,7 @@
     </section>
 
     <section class="portal" aria-label="Manifest VANTA">
+      <div class="portal__stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="portal__rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="portal__copy reveal">
         <span>THE VANTA PRINCIPLE</span>
@@ -268,7 +282,7 @@
 
   <footer>
     <div class="footer__top">
-      <a class="brand" href="#top"><span>VANTA<small>OBSERVATORY</small></span></a>
+      <a class="brand" href="#top"><span>VAN/TA<small>DEEP SKY INSTITUTE</small></span></a>
       <p>Obserwatorium dla tych,<br>którzy chcą zobaczyć mniej światła.</p>
       <div><a href="#signal">Sygnał</a><a href="#missions">Ekspedycje</a><a href="#visit">Wizyta</a></div>
     </div>
