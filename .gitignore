@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+data/visits.json
+data/*.tmp
+.DS_Store
+*.zip

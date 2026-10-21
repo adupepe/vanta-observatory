@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VANTA Observatory, immersyjne obserwatorium ciemnego nieba i archiwum zjawisk kosmicznych.">
+  <meta name="theme-color" content="#050509">
+  <meta name="color-scheme" content="dark">
+  <title>VANTA Observatory / Beyond visible</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="loader" data-loader aria-hidden="true">
+    <div class="loader__orbit"><i></i><i></i><i></i></div>
+    <div class="loader__data">
+      <span>VANTA / OPTICAL ARRAY</span>
+      <strong data-loader-count>000</strong>
+      <small>CALIBRATING DARKNESS</small>
+    </div>
+  </div>
+
+  <canvas class="cosmos" data-cosmos aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" data-cursor aria-hidden="true"><span></span></div>
+
+  <header class="nav" data-nav>
+    <a class="brand" href="#top" aria-label="VANTA, strona główna">
+      <svg viewBox="0 0 34 34" aria-hidden="true">
+        <circle cx="17" cy="17" r="15"></circle>
+        <circle cx="17" cy="17" r="4"></circle>
+        <path d="M2 17h30M17 2v30"></path>
+      </svg>
+      <span>VANTA<small>OBSERVATORY</small></span>
+    </a>
+    <div class="nav__coordinates" aria-hidden="true">
+      <span>49°18′N</span><i></i><span>19°57′E</span>
+    </div>
+    <nav class="nav__links" aria-label="Główna nawigacja">
+      <a href="#signal">Sygnał</a>
+      <a href="#missions">Ekspedycje</a>
+      <a href="#visit">Wizyta</a>
+    </nav>
+    <button class="sound-toggle" type="button" data-sound aria-label="Włącz dźwięk interfejsu" aria-pressed="false">
+      <span></span><span></span><span></span><span></span>
+      <b>SOUND OFF</b>
+    </button>
+    <button class="menu-toggle" type="button" data-menu aria-expanded="false" aria-label="Otwórz menu">MENU</button>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__interface" aria-hidden="true">
+        <span class="hero__code">VX-09 / LIVE ARRAY</span>
+        <span class="hero__time" data-space-time>00:00:00 UTC</span>
+        <div class="hero__reticle"><i></i><i></i><i></i></div>
+        <span class="hero__depth">DEPTH<br>13.7 BLY</span>
+      </div>
+
+      <div class="hero__copy">
+        <p class="eyebrow reveal">PRYWATNE OBSERWATORIUM CIEMNEGO NIEBA</p>
+        <h1 aria-label="Patrzymy poza widzialne">
+          <span class="reveal">PATRZYMY</span>
+          <span class="hero__outline reveal">POZA</span>
+          <span class="hero__italic reveal">WIDZIALNE.</span>
+        </h1>
+        <div class="hero__intro reveal">
+          <p>Niebo to nie tło. To archiwum światła, które podróżowało miliardy lat, żeby dotrzeć właśnie tutaj.</p>
+          <a class="magnetic-button" href="#missions"><span>WEJDŹ W CIEMNOŚĆ</span><b>↘</b></a>
+        </div>
+      </div>
+
+      <div class="hero__object" data-black-hole>
+        <div class="black-hole">
+          <div class="black-hole__halo"></div>
+          <div class="black-hole__disc"></div>
+          <div class="black-hole__core"></div>
+          <div class="black-hole__flare black-hole__flare--one"></div>
+          <div class="black-hole__flare black-hole__flare--two"></div>
+        </div>
+        <span>OBJECT / VANTA-01</span>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>SCROLL TO DESCEND</span><i></i>
+      </div>
+    </section>
+
+    <section class="signal" id="signal">
+      <div class="section-index reveal"><span>01</span><b>THE SIGNAL</b><i></i><small>READING / ACTIVE</small></div>
+      <div class="signal__headline">
+        <p class="reveal">Każdy punkt światła jest informacją z przeszłości.</p>
+        <h2 class="reveal">CISZA MA<br><em>SWOJĄ CZĘSTOTLIWOŚĆ.</em></h2>
+      </div>
+
+      <div class="signal__console reveal">
+        <div class="waveform" data-waveform aria-label="Animowana wizualizacja sygnału kosmicznego">
+          <canvas data-wave-canvas></canvas>
+          <div class="waveform__labels"><span>0 HZ</span><span>1420.405 MHZ</span><span>∞</span></div>
+        </div>
+        <div class="signal__reading">
+          <span>CAPTURE / 2026.294</span>
+          <strong data-signal-value>1.420405</strong>
+          <small>GHz / HYDROGEN LINE</small>
+          <button type="button" data-retune>RETUNE SIGNAL <b>↻</b></button>
+        </div>
+      </div>
+
+      <div class="signal__facts">
+        <article class="reveal"><span>01</span><strong>0.003<small>lux</small></strong><p>Poziom światła na głównej platformie obserwacyjnej.</p></article>
+        <article class="reveal"><span>02</span><strong>2,117<small>m</small></strong><p>Wysokość nad poziomem miasta i jego świetlnego szumu.</p></article>
+        <article class="reveal"><span>03</span><strong>13.7<small>bly</small></strong><p>Najdalszy zapis światła dostępny w archiwum VANTA.</p></article>
+      </div>
+    </section>
+
+    <section class="missions" id="missions">
+      <header class="missions__head">
+        <div class="section-index reveal"><span>02</span><b>FIELD MISSIONS</b><i></i><small>SELECT A CARD</small></div>
+        <h2 class="reveal">TRZY SPOSOBY,<br>BY STRACIĆ <em>HORYZONT.</em></h2>
+        <p class="reveal">Przesuń karty albo wybierz ekspedycję. Każda prowadzi do innej warstwy nocnego nieba.</p>
+      </header>
+
+      <div class="mission-deck" data-deck>
+        <article class="mission-card mission-card--lunar is-active" data-mission="lunar" tabindex="0">
+          <div class="mission-card__top"><span>MISSION / 01</span><span>04H 30M</span></div>
+          <div class="mission-card__planet"><i></i></div>
+          <div class="mission-card__content">
+            <span>LUNAR TERMINATOR</span>
+            <h3>Spacer po granicy światła.</h3>
+            <p>Obserwacja kraterów dokładnie tam, gdzie księżycowy dzień spotyka noc.</p>
+          </div>
+          <button type="button" aria-label="Otwórz szczegóły Lunar Terminator">EXPLORE <b>↗</b></button>
+        </article>
+
+        <article class="mission-card mission-card--nebula" data-mission="nebula" tabindex="0">
+          <div class="mission-card__top"><span>MISSION / 02</span><span>06H 10M</span></div>
+          <div class="mission-card__planet"><i></i></div>
+          <div class="mission-card__content">
+            <span>NEBULA LAB</span>
+            <h3>Kolor, którego oko nie widzi.</h3>
+            <p>Sesja wielopasmowa przekształca wodór, tlen i siarkę w mapę narodzin gwiazd.</p>
+          </div>
+          <button type="button" aria-label="Otwórz szczegóły Nebula Lab">EXPLORE <b>↗</b></button>
+        </article>
+
+        <article class="mission-card mission-card--deep" data-mission="deep" tabindex="0">
+          <div class="mission-card__top"><span>MISSION / 03</span><span>ALL NIGHT</span></div>
+          <div class="mission-card__planet"><i></i></div>
+          <div class="mission-card__content">
+            <span>DEEP FIELD</span>
+            <h3>Jedna klatka. Tysiące galaktyk.</h3>
+            <p>Całonocna ekspozycja skierowana w pozornie pusty fragment wszechświata.</p>
+          </div>
+          <button type="button" aria-label="Otwórz szczegóły Deep Field">EXPLORE <b>↗</b></button>
+        </article>
+      </div>
+
+      <div class="deck-controls">
+        <button type="button" data-deck-prev aria-label="Poprzednia ekspedycja">←</button>
+        <div><i data-deck-progress></i></div>
+        <span data-deck-count>01 / 03</span>
+        <button type="button" data-deck-next aria-label="Następna ekspedycja">→</button>
+      </div>
+    </section>
+
+    <section class="portal" aria-label="Manifest VANTA">
+      <div class="portal__rings" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="portal__copy reveal">
+        <span>THE VANTA PRINCIPLE</span>
+        <h2>ŻEBY ZOBACZYĆ WIĘCEJ,<br><em>MUSISZ USUNĄĆ ŚWIATŁO.</em></h2>
+        <p>Projektujemy doświadczenie wokół ciemności, ciszy i czasu. Technologia pozostaje niewidoczna, dopóki jej nie potrzebujesz.</p>
+      </div>
+      <div class="portal__orbit" aria-hidden="true"><span>VANTA</span><i></i></div>
+    </section>
+
+    <section class="instrument">
+      <div class="instrument__sticky">
+        <div class="section-index"><span>03</span><b>THE INSTRUMENT</b><i></i><small>ORBITAL ARRAY</small></div>
+        <div class="instrument__visual" data-instrument>
+          <div class="scope">
+            <div class="scope__dish"><i></i><b></b></div>
+            <div class="scope__arm"></div>
+            <div class="scope__base"></div>
+            <div class="scope__rings"><i></i><i></i><i></i></div>
+          </div>
+          <div class="instrument__hud"><span>AZ <b data-azimuth>000.0°</b></span><span>ALT <b data-altitude>00.0°</b></span></div>
+        </div>
+      </div>
+      <div class="instrument__story">
+        <article class="reveal" data-angle="24">
+          <span>01 / MIRROR</span><h3>Światło trafia na lustro.</h3>
+          <p>Segmentowe zwierciadło o średnicy 8,4 metra zbiera fotony słabsze niż pojedyncza świeca widziana z powierzchni Księżyca.</p>
+        </article>
+        <article class="reveal" data-angle="98">
+          <span>02 / SPECTRUM</span><h3>Kolor staje się danymi.</h3>
+          <p>Spektrograf rozdziela światło na chemiczny podpis obiektu: temperaturę, skład, prędkość i wiek.</p>
+        </article>
+        <article class="reveal" data-angle="168">
+          <span>03 / ARCHIVE</span><h3>Jedna noc zostaje na zawsze.</h3>
+          <p>Surowe obserwacje i gotowe kompozycje trafiają do prywatnego archiwum uczestnika ekspedycji.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="visit__intro">
+        <div class="section-index reveal"><span>04</span><b>BOOK THE NIGHT</b><i></i><small>LIMITED ACCESS</small></div>
+        <h2 class="reveal">TWOJA NOC<br><em>ZACZYNA SIĘ TUTAJ.</em></h2>
+        <p class="reveal">VANTA przyjmuje maksymalnie 12 gości. Wybierz ekspedycję, a my sprawdzimy warunki i dostępność.</p>
+        <dl class="visit__meta reveal">
+          <div><dt>LOKALIZACJA</dt><dd>Tatry / strefa ciemnego nieba</dd></div>
+          <div><dt>SEZON</dt><dd>Wrzesień — kwiecień</dd></div>
+          <div><dt>WARUNKI</dt><dd>Potwierdzenie 24h przed wizytą</dd></div>
+        </dl>
+      </div>
+
+      <form class="booking reveal" data-booking-form novalidate>
+        <div class="booking__head"><span>REQUEST TERMINAL</span><span>SECURE / TLS READY</span></div>
+        <label>
+          <span>01 / IMIĘ I NAZWISKO</span>
+          <input type="text" name="name" minlength="2" maxlength="80" autocomplete="name" required placeholder="WPROWADŹ DANE">
+          <small data-error="name"></small>
+        </label>
+        <div class="booking__row">
+          <label>
+            <span>02 / EMAIL</span>
+            <input type="email" name="email" maxlength="160" autocomplete="email" required placeholder="EMAIL@ADRES.PL">
+            <small data-error="email"></small>
+          </label>
+          <label>
+            <span>03 / LICZBA OSÓB</span>
+            <select name="guests" required>
+              <option value="">WYBIERZ</option><option value="1">01</option><option value="2">02</option>
+              <option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option>
+            </select>
+            <small data-error="guests"></small>
+          </label>
+        </div>
+        <div class="booking__row">
+          <label>
+            <span>04 / DATA</span>
+            <input type="date" name="date" required>
+            <small data-error="date"></small>
+          </label>
+          <label>
+            <span>05 / EKSPEDYCJA</span>
+            <select name="mission" required>
+              <option value="">WYBIERZ</option><option value="lunar">LUNAR TERMINATOR</option>
+              <option value="nebula">NEBULA LAB</option><option value="deep">DEEP FIELD</option>
+            </select>
+            <small data-error="mission"></small>
+          </label>
+        </div>
+        <label>
+          <span>06 / WIADOMOŚĆ (OPCJONALNIE)</span>
+          <textarea name="message" maxlength="500" rows="3" placeholder="PYTANIA, POTRZEBY, INFORMACJE"></textarea>
+          <small data-error="message"></small>
+        </label>
+        <label class="booking__consent">
+          <input type="checkbox" name="consent" required>
+          <i></i><span>Zgadzam się na kontakt w sprawie dostępności wybranej ekspedycji.</span>
+        </label>
+        <button class="booking__submit" type="submit"><span>WYŚLIJ PROŚBĘ</span><b>TRANSMIT ↗</b></button>
+        <div class="booking__status" data-form-status role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer__top">
+      <a class="brand" href="#top"><span>VANTA<small>OBSERVATORY</small></span></a>
+      <p>Obserwatorium dla tych,<br>którzy chcą zobaczyć mniej światła.</p>
+      <div><a href="#signal">Sygnał</a><a href="#missions">Ekspedycje</a><a href="#visit">Wizyta</a></div>
+    </div>
+    <div class="footer__word" aria-hidden="true">VANT<span>A</span></div>
+    <div class="footer__bottom"><span>© 2026 VANTA OBSERVATORY</span><span>49°18′N / 19°57′E</span><a href="#top">WRÓĆ NA ORBITĘ ↑</a></div>
+  </footer>
+
+  <dialog class="mission-modal" data-modal>
+    <button class="mission-modal__close" type="button" data-modal-close aria-label="Zamknij szczegóły">CLOSE ×</button>
+    <div class="mission-modal__visual"><div class="mission-modal__orb"><i></i></div><span data-modal-code>MISSION / 01</span></div>
+    <div class="mission-modal__content">
+      <span data-modal-label>LUNAR TERMINATOR</span>
+      <h2 data-modal-title>Spacer po granicy światła.</h2>
+      <p data-modal-description></p>
+      <dl>
+        <div><dt>CZAS</dt><dd data-modal-duration></dd></div>
+        <div><dt>POZIOM</dt><dd data-modal-level></dd></div>
+        <div><dt>ARCHIWUM</dt><dd data-modal-output></dd></div>
+      </dl>
+      <a href="#visit" data-modal-book>ZAREZERWUJ EKSPEDYCJĘ <b>↘</b></a>
+    </div>
+  </dialog>
+
+  <noscript>Ta strona potrzebuje JavaScriptu do animacji i formularza rezerwacji.</noscript>
+</body>
+</html>
